@@ -5,9 +5,18 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/BlankAR.unity
     guid: 6bdce89659816455b9f906fc62d19910
+  - enabled: 0
+    path: Assets/Scenes/RaycastInteraction.unity
+    guid: 4ad2eb8ff17ffcc4ab5ba583f108f232
+  - enabled: 0
+    path: Assets/Scenes/SmoothAnim.unity
+    guid: 1e3f639f530a83f4cb9f4cdffe680df0
+  - enabled: 1
+    path: Assets/Scenes/EVERYTHING.unity
+    guid: 61fad3acd3ec4204faf2dda9fcd560a9
   m_configObjects:
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: 744b813df90924c169af73489b8325de,
       type: 2}

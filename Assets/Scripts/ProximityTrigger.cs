@@ -12,6 +12,7 @@ public class ProximityTrigger : MonoBehaviour
     [SerializeField]
     private ProxMethod method;
     
+    private bool isGoingUp = true;
     
     // Start is called before the first frame update
     void Start()
@@ -31,6 +32,32 @@ public class ProximityTrigger : MonoBehaviour
 
         switch(method)
         {
+            case ProxMethod.Positioning :
+                Vector3 targetTop = new Vector3(2, 1f, 0);        //Don't forget to add the x/z vars of your cube, otherwise it will also travel horizontally!
+                Vector3 targetBottom = new Vector3(2, -1f, 0);
+                
+                if (distanceToPlayer <= 1.5f)               
+                {
+                    if (isGoingUp)
+                    {
+                        var step =  1f * Time.deltaTime; 
+                        transform.position = Vector3.MoveTowards(transform.position, targetTop, step);
+                        if (transform.position.y >= 1f)
+                        {
+                            isGoingUp = false;
+                        }
+                    }
+                    else if (!isGoingUp)
+                    {
+                        var step =  1f * Time.deltaTime; 
+                        transform.position = Vector3.MoveTowards(transform.position, targetBottom, step);
+                        if (transform.position.y <= -1f)
+                        {
+                            isGoingUp = true;
+                        }
+                    }
+                }
+                break;
             case ProxMethod.Rotation:
                 if (distanceToPlayer <= 1.5f)               //check if we are below a certain threshold (can be larger/smaller, doesn't have to be 1.5f)
                 {
@@ -53,5 +80,5 @@ public class ProximityTrigger : MonoBehaviour
 }
 
 enum ProxMethod{
-    ColorChange, Rotation
+    ColorChange, Rotation, Positioning
 }

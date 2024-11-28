@@ -32,6 +32,10 @@ public class RaycastInteraction : MonoBehaviour
                     {
                         hit.collider.gameObject.GetComponent<ColorChange>().ChangeColor();
                     }
+                    else if (hit.collider.gameObject.CompareTag("Rotate"))
+                    {
+                        hit.collider.gameObject.GetComponent<RaycastRotation>().changeIsRot();
+                    }
                 }
             }
         }
